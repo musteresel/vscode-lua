@@ -40,7 +40,7 @@ jobs:
         working-directory: ./server
         run: |
           apk update
-          apk add gcc musl-dev ninja
+          apk add gcc g++ musl-dev ninja
           ./make.sh linux
           rm -r ./build
 
