@@ -24,6 +24,10 @@ jobs:
     container:
       image: alpine:latest
     steps:
+      - name: Setup git
+        run: |
+          apk update
+          apk add git
       - uses: actions/checkout@v4
         with:
           submodules: recursive
