@@ -24,10 +24,10 @@ jobs:
     container:
       image: alpine:latest
     steps:
-      - name: Setup git
+      - name: Setup git + bash
         run: |
           apk update
-          apk add git
+          apk add git bash
       - uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -99,11 +99,11 @@ jobs:
       matrix:
         include:
           - { os: ubuntu-22.04,   target: linux,   platform: linux-x64    }
-          - { os: ubuntu-22.04,   target: linux,   platform: linux-arm64  }
-          - { os: macos-latest,   target: darwin,  platform: darwin-x64   }
-          - { os: macos-latest,   target: darwin,  platform: darwin-arm64 }
+          #- { os: ubuntu-22.04,   target: linux,   platform: linux-arm64  }
+          #- { os: macos-latest,   target: darwin,  platform: darwin-x64   }
+          #- { os: macos-latest,   target: darwin,  platform: darwin-arm64 }
           #- { os: windows-latest, target: windows, platform: win32-ia32   } # 不再支持32位
-          - { os: windows-latest, target: windows, platform: win32-x64    }
+          #- { os: windows-latest, target: windows, platform: win32-x64    }
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install aarch64-linux-gnu
